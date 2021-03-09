@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+	integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+	crossorigin="anonymous">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+	crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+	integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+	integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+	integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+	crossorigin="anonymous"></script>
+<script>
+	//클래스 선언
+	class Car{
+		constructor(kind, model){ //생성자 오버로딩 x
+			if(kind === undefined || model === undefined){
+				this.kind = "승용차";
+				this.model = "그랜저";
+				this.speed = 0;
+			} else{
+				this.kind = kind;
+				this.model = model;
+				this.speed = 0;
+				
+			}
+		}
+		
+		sound(){
+			console.log("빵빵");
+		}
+		
+		setSpeed(speed){
+			this.speed = speed;
+		}
+	}
+	
+	//객체 생성
+	const myCar = new Car("승용차", "그랜저");
+	//필드 접근
+	console.log(myCar.kind);
+	console.log(myCar.model);
+	console.log(myCar.speed);
+	
+	//메소드 호출
+	myCar.sound();
+	myCar.setSpeed(100);
+	console.log(myCar.speed);
+	
+
+</script>
+</head>
+<body>
+	<div class="card">
+		<div class="card-header">클래스(=객체의 설계도)</div>
+		<div class="card-body"></div>
+	</div>
+</body>
+</html>
