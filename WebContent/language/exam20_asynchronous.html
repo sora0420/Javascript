@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-	<html>
-	<head><!-- port = 서버 프로세스에 접근하기 위한 번호 -->
-		<meta charset="UTF-8">
-		<title>Insert title here</title>
-		<link rel="stylesheet"
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
 	integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
 	crossorigin="anonymous">
@@ -22,9 +22,24 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
 	integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
 	crossorigin="anonymous"></script>
-	</head>
-	<body>
-		<h5>index.html</h5>
+<script>  //동기 : 응답을 기다렸다가 실행 / 비동기 : 응답이 올때까지 기다리지 않고 실행
+	const fun1 = () => {
+		console.log("코드1 실행");
+		setTimeout(callback, 3000) //3초가 지나면 callback을 실행하겟다
+		console.log("코드3 실행");
+	};
 	
-	</body>
+	const callback = () => {
+		console.log("코드2 실행");
+	};
+</script>
+</head>
+<body>
+	<div class="card">
+		<div class="card-header">동기화 이해하기</div>
+		<div class="card-body">
+		<button onclick="fun1()" class="btn btn-danger btn-sm">함수 호출</button>
+		</div>
+	</div>
+</body>
 </html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- port = 서버 프로세스에 접근하기 위한 번호
+자바스크립트에서 값을 저장하는 곳 = properties(자바에서 field)
+function과 method의 차이
+객체가 있어야 사용할 수 있는게 method
+function은 단독으로 존재 가능
+자바의 객체 표기법 = class
+자바스크립트의 객체 표기법 = jason(javascript object notation)
+json표기법으로 어떻게 객체를 생성하느냐
+ -->
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+	integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+	crossorigin="anonymous">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+	crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+	integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+	integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+	integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+	crossorigin="anonymous"></script>
+<script>
+
+	const car = {
+			type:"승용차", 
+			model:"그랜저", 
+			color:"검정",
+			speed: 0,
+			owner: null,
+			run: function(){ /*이거 써도 됨> () => */
+				this.setSpeed(60); /* 객체 접근 시 this써줘야함 */
+				console.log("달립니다.");
+			},
+			setSpeed: function(speed){
+				this.speed = speed; /* propertiy 접근 시 this써줘야함 */
+			},
+			getSpeed: function() { /* function을 쓰려면 function을 선언 */
+				this.speed /* 값이라서 리턴 */
+			},
+			sound: function(){
+				console.log("띠띠") /* >리턴값이 아님 */
+			},
+			
+			changeOwner: function(name){ /* 매개변수 하나면 괄호 생략 가능 */
+				this.owner = name;
+				console.log("소유주가 "+this.owner+"입니다.");
+			}
+			
+		};
+	const readProperties = () =>{
+		console.group("car info");
+		console.log(car.type);
+		console.log(car.model);
+		console.log(car.color);		
+		console.groupEnd();		
+	};
+	
+	const readProperty = (propName) => {
+		console.log(car[propName]);		
+	}
+	
+	const methodCall = () =>{
+		car.run();
+		car.setSpeed(100);
+		console.log(car.getSpeed());
+		car.sound();
+		car.changeOwner("홍길동");
+		readProperties();
+	}
+	
+</script>
+</head>
+<body>
+	<div class="card">
+		<div class="card-header">
+		JavaScript Function	
+	</div> 
+	<button onclick="readProperties()" class="btn btn-success btn-sm">객체 속성 읽기</button>
+	<a href="javascript:readProperty('model')" class="btn btn-success btn-sm">객체 속성 읽기</a>
+	<a href="javascript:methodCall()" class="btn btn-success btn-sm">객체 메소드 호출</a>
+	
+</body>
+</html>

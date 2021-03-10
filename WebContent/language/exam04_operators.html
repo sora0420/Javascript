@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- port = 서버 프로세스에 접근하기 위한 번호 -->
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"	integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"	crossorigin="anonymous">
+<script	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+	crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+	integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+	integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+	integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+	crossorigin="anonymous"></script>
+
+</head>
+<body>
+	<div class="card">
+		<div class="card-header">javascript Variables</div>
+		<div class="card-body"></div>
+		<!--head안이던 body안이던 가능 -->
+	</div>
+	<!-- 자바스크립트 작성 위치 -->
+	<script>
+			let x = 2;
+			let result = x ** 3;
+			console.log("result : ",result);
+	</script>
+	<script>
+	let var1 = 3; 
+	console.log(typeof var1); //number / 변수안에 있는 값의 타입
+	
+	let var2 = "JavaScript";
+	console.log(typeof var2); //String 
+	
+	let var3 = false;
+	console.log(typeof var3); //boolean
+	
+	let var4 = {name:"Javascipt"};
+	console.log(typeof var4); //object
+	
+	let var5 = function(){};
+	console.log(typeof var5); //function
+	
+	let var6 = () => {}; //이렇게도 함수 선언 가능
+	console.log(typeof var6); //function
+	
+	</script>
+	
+		<script>
+		let var7 = 3;
+		let var8 = "3";
+		console.log(var7 == var8); //true나옴
+		console.log(var7 === var8); //값뿐만이 아니라 타입도 비교
+		
+		console.log(var7 != var8); //false나옴
+		console.log(var7 !== var8); //true 나옴
+		
+		</script>
+		<script> //|| 앞이 부정이면(공백, null, false) 뒤에것이 값이 됨 >> 부정 || 값 => 값이 나옴
+		// 긍정의 값 || 값 => 긍정의 값
+		//부정의 값 && 값 => 부정의 값
+		// 긍정의 값 && 값 => 값
+		const var9 = "" || "abc";
+		console.log("var9 : "+var9);//abc
+		
+		const var10 = null || "abc"; //null = 아직 객체를 참조하고 있지 않음
+		console.log("var10 : "+var10); //abc
+		
+		var var11;
+		var var12 = var11 || 5; //공백, null, 값이 없으면 뒤에값이 저장됨
+		console.log("var12 : "+var12); //5
+		
+		var var13 = 0;
+		var var14 =  var13 ||5;
+		console.log("var14 : "+var14); //5
+		
+		var var15 = false;
+		var var16 =  var15 ||5;
+		console.log("var16 : "+var16); //5
+		
+		console.log("a" || "abc"); //a / 앞에가 true라 이게 나옴
+		
+		console.log("" && "abc"); //다 앞에 값이 출력됨
+		console.log(null && "abc"); //null
+		console.log(false && "abc"); //false
+		console.log("a" && "abc"); //abc
+		console.log(true && "abc"); //abc
+		
+		var var20;
+		console.log(typeof var20); //undefined 타입임
+		
+		
+		/* var var14 = var13 || 10;
+		console.log("var14 : "+var14); //13은 not defined되서 error
+		 */
+		
+	</script>
+	
+
+</body>
+</html>

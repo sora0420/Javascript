@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-	<html>
-	<head><!-- port = 서버 프로세스에 접근하기 위한 번호 -->
-		<meta charset="UTF-8">
-		<title>Insert title here</title>
-		<link rel="stylesheet"
+<!-- dom = document object model >>html
+bom = browser object model >>브라우저
+ -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
 	integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
 	crossorigin="anonymous">
@@ -22,9 +25,26 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
 	integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
 	crossorigin="anonymous"></script>
-	</head>
-	<body>
-		<h5>index.html</h5>
+<script>  
+	function closeWindow(){
+		window.close(); //여기서의 window는 popup창 / 태그들마다 생성되는 객체 = element
+	}
 	
-	</body>
+	function tranferData(){
+		var input = window.opener.document.getElementById("txtData");
+		input.value = "자바스크립트";
+	}
+		
+</script>
+</head>
+<body>
+	<div class="card">
+		<div class="card-header">Global Function 사용하기</div>
+		<div class="card-body">
+			<button class="btn btn-primary btn-sm" onclick="closeWindow()">닫기</button>
+			<button class="btn btn-primary btn-sm" onclick="tranferData()">데이터 전달</button>
+				
+		</div>
+	</div>
+</body>
 </html>

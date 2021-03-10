@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-	<html>
-	<head><!-- port = 서버 프로세스에 접근하기 위한 번호 -->
-		<meta charset="UTF-8">
-		<title>Insert title here</title>
-		<link rel="stylesheet"
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
 	integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
 	crossorigin="anonymous">
@@ -22,9 +22,29 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
 	integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
 	crossorigin="anonymous"></script>
-	</head>
-	<body>
-		<h5>index.html</h5>
+<script>
+	const board = {bno:1, btitle:"오늘은 좋은날", writer:"땡잡아"};
+	for(key in board){ //const써도 되는데 잘 안씀
+		let value = board[key];
+		console.log(key, ":", value);
+	}
 	
-	</body>
+	const boards = [{bno:1, btitle:"오늘은 좋은날", writer:"땡잡아"},
+		{bno:1, btitle:"오늘은 공부하는 날", writer:"땡큐"},
+		{bno:1, btitle:"오늘은 과제하는 날", writer:"신난다"}];
+	
+	for(board of boards){ // of뒤에는 배열 / in 뒤에는 객체
+		for(key in board){ //const써도 되는데 잘 안씀
+			let value = board[key];
+			console.log(key, ":", value);
+		}
+	}
+</script>
+</head>
+<body>
+	<div class="card">
+		<div class="card-header">for문</div>
+		<div class="card-body"></div>
+		</div>
+</body>
 </html>

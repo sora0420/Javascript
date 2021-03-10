@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-	<html>
-	<head><!-- port = 서버 프로세스에 접근하기 위한 번호 -->
-		<meta charset="UTF-8">
-		<title>Insert title here</title>
-		<link rel="stylesheet"
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
 	integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
 	crossorigin="anonymous">
@@ -22,9 +22,49 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
 	integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
 	crossorigin="anonymous"></script>
-	</head>
-	<body>
-		<h5>index.html</h5>
+<script>
+	//클래스 선언
+	class Car{
+		constructor(kind, model){ //생성자 오버로딩 x
+				this.kind = kind;
+				this.model = model;
+			 
+		}
+		
+		sound(){
+			console.log("빵빵");
+		}
+	}
 	
-	</body>
+	class SportsCar extends Car{
+		constructor(kind, model, maxSpeed){ //생성자 오버로딩 x
+			super(kind, model);
+			this.maxSpeed = maxSpeed;
+		} 
+		
+		run(){
+			console.log(this.maxSpeed+"로 달립니다.");
+		}
+		
+		static info(){
+			console.log("경주용 자동차 클래스입니다.");
+		}
+	}
+	
+	const myCar = new SportsCar("경주차", "포르쉐", 300)
+	console.log(myCar.kind);
+	console.log(myCar.model);
+	console.log(myCar.maxSpeed);
+	myCar.sound();
+	myCar.run();
+	SportsCar.info();
+
+</script>
+</head>
+<body>
+	<div class="card">
+		<div class="card-header">클래스(=객체의 설계도) 상속</div>
+		<div class="card-body"></div>
+	</div>
+</body>
 </html>

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-	<html>
-	<head><!-- port = 서버 프로세스에 접근하기 위한 번호 -->
-		<meta charset="UTF-8">
-		<title>Insert title here</title>
-		<link rel="stylesheet"
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
 	integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
 	crossorigin="anonymous">
@@ -22,9 +22,34 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
 	integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
 	crossorigin="anonymous"></script>
-	</head>
-	<body>
-		<h5>index.html</h5>
+<script>
+	const ssn = "123456-1234567";
+	console.log("전체 문자수 : ",ssn.length);
+	const sex = ssn.charAt(7);
+	console.log("성별 : ",sex);
 	
-	</body>
+	const part1 = ssn.substr(0, 6);
+	console.log(part1);
+	
+	const part2 = ssn.substring(7, ssn.length); //뒤의 인덱스 포함안됨 그래서 그대로
+	const part3 = ssn.substring(7); //뒤의 인덱스 생략하면 끝까지
+	
+	console.log(part2);
+	console.log(part3);
+	
+	const partArray = ssn.split("-");
+	console.log(partArray);
+	console.log(partArray[0]);
+	console.log(partArray[1]);
+	//객체는 {} / 배열은 []
+	
+</script>
+</head>
+<body>
+	<div class="card">
+		<div class="card-header">문자열 처리</div>
+		<div class="card-body">
+		
+		</div>
+</body>
 </html>

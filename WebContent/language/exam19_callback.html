@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-	<html>
-	<head><!-- port = 서버 프로세스에 접근하기 위한 번호 -->
-		<meta charset="UTF-8">
-		<title>Insert title here</title>
-		<link rel="stylesheet"
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
 	integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
 	crossorigin="anonymous">
@@ -22,9 +22,37 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
 	integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
 	crossorigin="anonymous"></script>
-	</head>
-	<body>
-		<h5>index.html</h5>
+<script> //직접적으로 실행되는건 아니지만/ 함수가 실행하면서 결과에 따라 내부적으로 호출 / 실행 상태에 따라 자동적으로 내부에서 호출
+	function fun1(){
+		console.log("fun1() 실행");
+		fun2(fun3, fun4);
+	}
+
+	function fun2(success, failure){
+		console.log("시간을 요하는 작업을 진행...");
+		let result = true;
+		if(result){
+			success(); //성공 콜백
+		}else{
+			failure(); //실패 콜백
+		}
+	}
 	
-	</body>
+	function fun3(){
+		console.log("작업 성공 통보");
+	}
+	
+	function fun4(){
+		console.log("작업 실패 통보");
+	}
+</script>
+</head>
+<body>
+	<div class="card">
+		<div class="card-header">콜백 이해하기</div>
+		<div class="card-body">
+		<button onclick="fun1()" class="btn btn-danger btn-sm">함수 호출</button>
+		</div>
+	</div>
+</body>
 </html>
