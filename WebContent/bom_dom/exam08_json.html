@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!-- dom = document object model >>html
+bom = browser object model >>브라우저
+모든 태그들이 공통적으로 가지고 있는 attribute DOM element
+특정 태그만 가지고 있는 attrigute >> HTML Object
+
+JSON = 자바스크립트 표현 방법
+{} : 객체
+[] : 배열
+parse[] : 문자열 > javascript 객체/ 배열로 만듦
+stringfy[] : javascript 객체/배열 > 문자열로 만듦
+ -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+	integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+	crossorigin="anonymous">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+	crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+	integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+	integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+	integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+	crossorigin="anonymous"></script>
+<script>
+	//Javascript 객체/배열을 JSON문자열로 혹은 JSON 객체/배열을 Javascript로
+	const obj1 = {name:"홍길동", age:26, job:"개발자", adult:true}; //javascript객체 > 네트워크 전송시 json
+	const json1 = JSON.stringify(obj1);
+	console.log(json1); //property 이름이 ""로 감싸짐
+	
+	const json2 = '{"bno":1, "title":"제목", "writer":"홍길동"}'; 
+	const obj2 = JSON.parse(json2);
+	console.log(obj2);
+	
+	const arr3 = [{name:"홍길동", age:26},{name:"감자바", age:27}] //javascript 배열이고 배열의 항목은 객체
+	const json3 = JSON.stringify(arr3);
+	console.log(json3);
+	
+	const json4 = '[{"name":"홍길동","age":26},{"name":"감자바","age":27}]' //'' >> 문자열
+	const arr4 = JSON.parse(json4);
+	console.log(arr4);
+	
+	//es6에서 새로생긴 문법 / Javascript 객체의 속성을 작성하는 법
+	const name = "홍길동";
+	const age = 26;
+	const job = "개발자";
+	const adult = true;	
+	//const obj5 = {name:name, age:age, job:job, adult:adult}; //name:name = 속성명:변수
+	const obj5  = {name, age, job, adult}; //새로운 문법 / 변수만
+	console.log(obj5);
+	
+</script>
+<style type="text/css">
+</style>
+</head>
+<body>
+
+	<div class="card">
+		<div class="card-header">JSON</div>
+		<div class="card-body">
+
+		</div>
+	</div>
+</body>
+</html>
