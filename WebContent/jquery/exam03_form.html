@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<!-- dom = document object model >>html
+bom = browser object model >>브라우저
+모든 태그들이 공통적으로 가지고 있는 attribute DOM element
+특정 태그만 가지고 있는 attrigute >> HTML Object
+
+JSON = 자바스크립트 표현 방법
+{} : 객체
+[] : 배열
+parse[] : 문자열 > javascript 객체/ 배열로 만듦
+stringfy[] : javascript 객체/배열 > 문자열로 만듦
+jquery : 써야하는 이유 / jQuery는 빠르고, 작고, 기능이 풍부한 자바스크립트 라이브러리이다. 
+HTML 문서 트래버설과 조작, 이벤트 처리, 애니메이션, Ajax와 같은 것을 수많은 브라우저에서 작동되는 
+사용하기 쉬운 API로 훨씬 더 쉽게 만들 수 있다. 
+다용성과 확장성이 결합된 jQuery는 수백만 명의 사용자가 JavaScript를 작성하는 방식을 변경했습니다.
+
+var jQuery = function(){...}
+var $ = jQuery;
+jQuery();
+${};
+ -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+	integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+	crossorigin="anonymous">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+	crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+	integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+	integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+	integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+	crossorigin="anonymous"></script>
+<script>
+	function checkData(){
+		console.log("checkData() 실행");
+		event.preventDefault(); //원래 기본동작을 취소할때 사용 // ex button submit 서버에전송인데 취소
+		
+		//input 태그의 값을 얻는 방법
+		var uid = $("#uid").val(); //#uid를 찾고나서 val = value를 얻는다
+		console.log("uid : ", uid);
+		var utel = $("#utel").val();
+		console.log("utel : ", utel);		
+		var uemail = $("#uemail").val();
+		console.log("uemail : ", uemail);
+		var upassword = $("#upassword").val();
+		console.log("upassword : ", upassword);
+		
+		//checkbox에서 체크된 것만 얻기 
+		var checkedSkills = $("[name=skill]:checked"); //checkbox중 skill이름을 갖는것중에 checked
+		//방법1
+		for(var i=0;i<checkedSkills.length;i++){ //checkedSkills = 컬렉션 
+			//console.log(checkedSkills[i].value); //컬렉션안의 element(객체)에 접근시에는 value / checkedSkills[i] = element타입
+			console.log($(checkedSkills[i]).val()); //$(checkedSkills[i]) $붙이고 ()붙이면 jquery 객체로 변환
+		}
+		//방법2
+		checkedSkills.each(function(){
+			//console.log(this.value); //element 타입				
+			console.log($(this).val()); //jquery타입  / jquery권장
+		}); //checkedSkills. 은 jquery에서 메소드 제공 /each = 반복
+		
+		//radio에서 체크된 것만 얻기
+		var checkedJob = $("[name=ujob]:checked");
+		console.log($(checkedJob).val());
+	}
+</script>
+</head>
+<body>
+
+	<div class="card">
+		<div class="card-header">jQuery() 함수가 리턴하는 컬렉션 사용 방법</div>
+		<div class="card-body">
+			<form onsubmit="checkData()"> <!-- on자가 들어가면 이벤트 처리 -->
+		<div class="form-group">
+    <label for="uid">아이디</label> <!-- 글씨 누르면 포커스 이동 --><!-- form-control = 전체행 차지 -->
+    <input type="text" class="form-control" id="uid" 
+    minlength="3" maxlength="10" required>
+    </div><!-- min.. = 최소글자 / max.. = 최대글자 제한 /required="required" = 꼭 써야하는 항목 >>이름 같아서 생략가능 -->
+    <div class="form-group">
+    <label for="utel">전화번호</label> <!-- 글씨 누르면 포커스 이동 --><!-- form-control = 전체행 차지 -->
+    <input type="text" class="form-control" id="utel" 
+    required pattern="010-\d{3,4}-\d{4}">
+    </div>
+    
+  <div class="form-group">
+    <label for="uemail">이메일</label> <!-- 글씨 누르면 포커스 이동 --><!-- form-control = 전체행 차지 -->
+    <input type="email" class="form-control" id="uemail" aria-describedby="emailHelp">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small><!-- 부연설명 -->
+  </div>
+  <div class="form-group">
+    <label for="upassword">비밀번호</label>
+    <input type="password" class="form-control" id="upassword">
+  </div>
+  
+  <div>
+    <input type="checkbox" name="skill" checked value="java">자바 <!-- check되었을때 값을 위해 value넣어야함 -->
+    <input type="checkbox" name="skill" value="javascript">자바스크립트
+    <input type="checkbox" name="skill" value="react">리액트	
+  </div>
+  
+    <div>
+    <input type="radio" name="ujob" value="developer"> 개발자 <!--radio는 name이 있어야 같은 그룹 중 하나만 선택 -->
+    <input type="radio" name="ujob" checked value="designer"> 디자이너 <!-- checked는 기본적으로 선택되게 -->
+    <input type="radio" name="ujob" value="pm"> 프로젝트 관리자
+  </div>
+  <div>
+  	생년월일 : <input type="date">
+  </div>
+  
+    <div class="form-group form-check">
+    <input type="checkbox" class="form-check-input" id="upublic">
+    <label class="form-check-label" for="upublic">공개여부</label>
+		  </div>
+		  <!-- <div style="display:flex; align-items: center"> / 밑에는 bootstrap -->
+		  <div class="d-flex align-items-center">		  
+		  <button type="submit" class="btn btn-primary">가입</button>
+		  <input type="image" src="/javascript/common/images/join.png"/><!-- form태그 안에서 쓰면 submit 효과가 나옴 -->
+		  <button class="btn btn-success">가입</button>
+		  
+		   <!-- form태그 안에서 쓰면 submit 효과가 나옴 -->
+		 
+		  </div>
+</form>
+		</div>
+	</div>
+</body>
+</html>

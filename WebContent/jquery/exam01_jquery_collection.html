@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<!-- dom = document object model >>html
+bom = browser object model >>브라우저
+모든 태그들이 공통적으로 가지고 있는 attribute DOM element
+특정 태그만 가지고 있는 attrigute >> HTML Object
+
+JSON = 자바스크립트 표현 방법
+{} : 객체
+[] : 배열
+parse[] : 문자열 > javascript 객체/ 배열로 만듦
+stringfy[] : javascript 객체/배열 > 문자열로 만듦
+jquery : 써야하는 이유 / jQuery는 빠르고, 작고, 기능이 풍부한 자바스크립트 라이브러리이다. 
+HTML 문서 트래버설과 조작, 이벤트 처리, 애니메이션, Ajax와 같은 것을 수많은 브라우저에서 작동되는 
+사용하기 쉬운 API로 훨씬 더 쉽게 만들 수 있다. 
+다용성과 확장성이 결합된 jQuery는 수백만 명의 사용자가 JavaScript를 작성하는 방식을 변경했습니다.
+
+var jQuery = function(){...}
+var $ = jQuery;
+jQuery();
+${};
+ -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+	integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+	crossorigin="anonymous">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+	crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+	integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+	integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+	integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+	crossorigin="anonymous"></script>
+<script>
+	const handleClick1 = () => {
+		var mydiv = $(".mydiv"); //css선택자 문법 사용 가능
+		mydiv.css("background-color", "yellow");
+		mydiv.html("<img src='/javascript/common/images/photo2.jpg' width='50'/>");
+	};
+	
+	const handleClick2 = () => {
+		var myRed = $(".my-red"); //css선택자 문법 사용 가능
+		myRed.css("background-color", "lightpink");
+	};
+	
+	const handleClick3 = () => {
+		var imgBox = $("#imgBox1, #imgBox2 "); //css선택자 문법 사용 가능
+		imgBox.append("<img src='/javascript/common/images/photo1.jpg' height='100'/>");
+	};
+	
+</script>
+<style type="text/css">
+.mydiv {
+	width: 100px;
+	height: 100px;
+	display: inline-block;
+	border: 1px solid black;
+	margin: 10px;
+}
+</style>
+</head>
+<body>
+
+	<div class="card">
+		<div class="card-header">jQuery() 함수가 리턴하는 컬렉션 사용 방법</div>
+		<div class="card-body">
+		<button class="btn btn-danger btn-sm mb-2" onclick="handleClick1()">
+		 모든 DIV 배경 변경
+		</button>
+		<button class="btn btn-danger btn-sm mb-2" onclick="handleClick2()">
+		 my-red DIV 배경 변경
+		</button>
+		<button class="btn btn-danger btn-sm mb-2" onclick="handleClick3()">
+		 이미지 추가
+		</button>
+		<hr/>
+				
+			<div class="mydiv"></div>
+			<div class="mydiv"></div>
+			<div class="mydiv my-red"></div>
+			<div class="mydiv my-red"></div>
+			<div class="mydiv my-red"></div>
+			<hr/>
+			<div id="imgBox1"></div>
+			<div id="imgBox2"></div>
+			
+		</div>
+	</div>
+</body>
+</html>
